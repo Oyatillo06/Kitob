@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mualliflar</title>
+</head>
+<body>
+    <h1>Mualliflar ro'yhati: </h1>
+    {% for i in muallif %}
+    <h3>{{i}}</h3>
+    {% endfor %}
+    <form action="{% url 'mualliflar' %}" method="post">{% csrf_token %}
+        {{forma}}
+        <button type="submit">Topshirish</button>
+
+
+
+
+
+    </form>
+</body>
+</html>

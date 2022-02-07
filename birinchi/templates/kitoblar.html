@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar</title>
+</head>
+<body>
+    <h1>Kitoblar ro'yhati: </h1>
+    {% for i in books %}
+    <h3>{{i.nom}} ({{i.tur}}, {{i.sahifa}})</h3>
+    <button><a href="/kitoblar/{{i.id}}" >O'chirish</a></button>
+    {% endfor %}
+    <br>
+    <br>
+    <form action="{% url 'kitoblar' %}" method="post">{% csrf_token %}
+        {{ forma }}
+        <button type="submit">Topshirish</button>
+    </form>
+</body>
+</html>

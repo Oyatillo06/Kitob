@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recordlar</title>
+</head>
+<body>
+    <h1>Recordlar ro'yhati: </h1>
+    {% for i in records %}
+    <h3>{{i.kitob.nom}} ({{i.muallif.ism}}, {{i.vaqt}})</h3>
+    <button><a href="/recordlar/{{i.id}}" >O'chirish</a></button>
+    {% endfor %}
+    <br>
+    <br>
+    <form action="{% url 'recordlar' %}" method="post">{% csrf_token %}
+        <select name="book">
+            {% for i in books %}
+            <option value="{{i.id}}">{{i.nom}}</option>
+            {% endfor %}
+        </select>
+        <select name="muallif">
+            {% for j in authors %}
+            <option value="{{j.id}}">{{j.ism}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Topshirish</button>
+    </form>
+</body>
+</html>
